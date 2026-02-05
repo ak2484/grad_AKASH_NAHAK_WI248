@@ -1,14 +1,10 @@
 package com.lma.dao;
 
-import java.util.List;
-
-import com.lma.model.Payment;
-
 public interface PaymentDAO {
 
-    boolean addPayment(Payment payment);
+    void makePayment(int siteId,  int amount);
 
-    List<Payment> getPaymentsByMaintenance(int maintenanceId);
+    void getPaymentHistory(int siteId);
 
-    double getTotalPaidAmount(int maintenanceId);
+    boolean collectPayment(int siteId, double amount);
 }

@@ -1,18 +1,14 @@
 package com.lma.dao;
 
-import java.util.List;
-
-import com.lma.model.Maintenance;
-
 public interface MaintenanceDAO {
 
-    boolean generateMaintenance(Maintenance maintenance);
+    void generateMaintenance(String month);
 
-    Maintenance getMaintenanceById(int maintenanceId);
+    void getPendingMaintenance();
 
-    Maintenance getMaintenanceBySiteAndMonth(int siteId, String month);
+    int getMaintenanceAmount(int siteId, String month);
 
-    List<Maintenance> getMaintenanceBySite(int siteId);
+    void updateMaintenanceStatus(int siteId, String month, int pendingAmount, String status);
 
-    boolean updateMaintenanceStatus(int maintenanceId, String status);
+    void getMaintenanceByOwner(int ownerId);
 }

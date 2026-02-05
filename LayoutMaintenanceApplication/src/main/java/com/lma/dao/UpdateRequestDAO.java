@@ -1,16 +1,12 @@
 package com.lma.dao;
 
-import java.util.List;
-
-import com.lma.model.UpdateRequest;
-
 public interface UpdateRequestDAO {
 
-    boolean createRequest(UpdateRequest request);
+    void raiseRequest(int siteId, String fieldName, String newValue, int ownerId);
 
-    boolean updateRequestStatus(int requestId, String status);
+    void getPendingRequests();
 
-    List<UpdateRequest> getPendingRequests();
+    void processRequest(int requestId, String decision);
 
-    List<UpdateRequest> getRequestsBySite(int siteId);
+//    boolean updateRequestStatus(int requestId, String status);
 }

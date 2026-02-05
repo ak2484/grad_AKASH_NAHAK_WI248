@@ -43,7 +43,7 @@ public class SiteDBOperations implements SiteDAO {
             System.out.println("Site added successfully");
             return true;
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
@@ -67,7 +67,7 @@ public class SiteDBOperations implements SiteDAO {
             int rows = ps.executeUpdate();
             return rows > 0;
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
@@ -92,7 +92,7 @@ public class SiteDBOperations implements SiteDAO {
             }
             return true;
 
-        } catch (SQLException | IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
@@ -115,7 +115,7 @@ public class SiteDBOperations implements SiteDAO {
                 site = mapResultSetToSite(rs);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -138,7 +138,7 @@ public class SiteDBOperations implements SiteDAO {
                 sites.add(mapResultSetToSite(rs));
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -163,7 +163,7 @@ public class SiteDBOperations implements SiteDAO {
                 sites.add(mapResultSetToSite(rs));
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -181,6 +181,11 @@ public class SiteDBOperations implements SiteDAO {
         site.setOwnerId(rs.getInt("owner_id"));
         return site;
     }
+
+//    public Site getSiteByOwnerId(int ownerId){
+//        Site site = new Site();
+//        return site;
+//    }
 
     // printing the values in the terminal
     private void printRS(ResultSet rs) throws SQLException {

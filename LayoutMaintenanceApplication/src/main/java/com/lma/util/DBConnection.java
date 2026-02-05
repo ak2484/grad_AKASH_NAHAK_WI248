@@ -2,7 +2,6 @@ package com.lma.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DBConnection {
 
@@ -12,9 +11,10 @@ public class DBConnection {
 
     }
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws Exception {
         if (con == null) {
             // Class.forName("");
+            Class.forName("org.postgresql.Driver");
 
             con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/lma", "postgres", "123@Akash");
 

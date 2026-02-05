@@ -17,4 +17,6 @@ public interface SiteDAO {
     List<Site> getAllSites();
 
     List<Site> getSitesByOwner(int ownerId);
+
+//    Site getSiteByOwnerId(int ownerId);
 }
