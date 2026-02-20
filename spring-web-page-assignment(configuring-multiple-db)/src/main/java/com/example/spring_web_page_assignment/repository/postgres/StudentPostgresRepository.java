@@ -1,0 +1,10 @@
+package com.example.spring_web_page_assignment.repository.postgres;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.spring_web_page_assignment.models.Student;
+
+@Repository
+public interface StudentPostgresRepository extends JpaRepository<Student, Integer> {
+}
