@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Loan Calculator</title>
+
+    <script>
+      let selectedType = "";
+
+      function loanType(type) {
+        selectedType = type;
+
+        let interest = 0;
+
+        if (type === "HOME") {
+          interest = 9;
+          document.getElementById("duration").max = 30;
+          document.getElementById("amount").min = 500000;
+        }
+
+        if (type === "CAR") {
+          interest = 12;
+          document.getElementById("duration").max = 7;
+          document.getElementById("amount").min = 100000;
+        }
+
+        if (type === "PERSONAL") {
+          interest = 15;
+          document.getElementById("duration").max = 5;
+          document.getElementById("amount").min = 10000;
+        }
+
+        document.getElementById("intrest").value = interest;
+      }
+
+      function calculateEMI(event) {
+        event.preventDefault();
+
+        if (!selectedType) {
+          alert("Please select Loan Type");
+          return;
+        }
+
+        let p = parseFloat(document.getElementById("amount").value);
+        let r = parseFloat(document.getElementById("intrest").value) / 100 / 12;
+        let n = parseInt(document.getElementById("duration").value) * 12;
+
+        if (isNaN(p) || isNaN(n)) {
+          alert("Please enter valid amount and duration");
+          return;
+        }
+
+        let emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+        document.getElementById("emiResult").value = emi.toFixed(2);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Loan Calculator</h1>
+    <hr />
+
+    <form onsubmit="calculateEMI(event)">
+      Applicant Name :
+      <input type="text" /><br /><br />
+
+      Loan Type :
+      <input type="radio" name="type" onclick="loanType('HOME')" />HOME
+      <input type="radio" name="type" onclick="loanType('CAR')" />CAR
+      <input type="radio" name="type" onclick="loanType('PERSONAL')" />PERSONAL
+      <br /><br />
+
+      Interest :
+      <input type="number" id="intrest" disabled />
+      <br /><br />
+
+      Amount :
+      <input type="number" id="amount" required />
+      <br /><br />
+
+      Duration (Years):
+      <input type="number" id="duration" required />
+      <br /><br />
+
+      EMI :
+      <input type="text" id="emiResult" disabled />
+      <br /><br />
+
+      <input type="submit" value="CALCULATE EMI" />
+    </form>
+  </body>
+</html>
