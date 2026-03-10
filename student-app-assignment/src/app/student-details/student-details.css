@@ -1,0 +1,43 @@
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  padding: 20px;
+}
+
+/* STUDENT CARD */
+
+.student-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px;
+  border-left: 4px solid #134074;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* TITLE */
+
+.student-card h4 {
+  margin-bottom: 10px;
+  color: #0b2545;
+  font-size: 18px;
+}
+
+/* TEXT */
+
+.student-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* HOVER EFFECT */
+
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid #0b2545;
+}

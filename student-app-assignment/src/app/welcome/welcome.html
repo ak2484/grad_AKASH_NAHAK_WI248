@@ -1,0 +1,48 @@
+<div class="welcome-container">
+  <!-- Guest -->
+  <div *ngIf="us.getName() === 'Guest'">
+    <h1>Welcome to Student Management System</h1>
+
+    <p>Manage student records efficiently and securely.</p>
+
+    <button routerLink="/login" class="btn-primary">Login to Continue</button>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div *ngIf="rs.getRole() === 'Admin' && us.getName() !== 'Guest'">
+    <h1>Welcome Admin {{ us.getName() }}</h1>
+
+    <p>You can manage all student records.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Add Students</h3>
+        <p>Create new student records</p>
+      </div>
+
+      <div class="card">
+        <h3>Edit Students</h3>
+        <p>Update student information</p>
+      </div>
+
+      <div class="card">
+        <h3>Delete Students</h3>
+        <p>Remove student records</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Staff Dashboard -->
+  <div *ngIf="rs.getRole() === 'Staff' && us.getName() !== 'Guest'">
+    <h1>Welcome Staff {{ us.getName() }}</h1>
+
+    <p>You can view student details.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>View Students</h3>
+        <p>Access student information</p>
+      </div>
+    </div>
+  </div>
+</div>
