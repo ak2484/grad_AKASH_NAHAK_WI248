@@ -73,7 +73,13 @@ export class AdminPage {
   }
 
   deleteStudent(index: number) {
-    this.students.splice(index, 1);
+    const confirmDelete = confirm(
+      `Are you sure you want to delete ${this.students[index].name} with roll no : ${this.students[index].rollNo}?`,
+    );
+
+    if (confirmDelete) {
+      this.students.splice(index, 1);
+    }
   }
 
   cancelEdit() {
