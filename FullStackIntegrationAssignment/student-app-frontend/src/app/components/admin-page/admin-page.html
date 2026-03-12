@@ -1,0 +1,40 @@
+<div class="container">
+  <button class="add-btn" (click)="openAddForm()">Add Student</button>
+
+  <div class="form-card" *ngIf="showForm">
+    <h2>{{ editIndex !== null ? 'Update Student' : 'Add Student' }}</h2>
+
+    <input type="number" placeholder="Reg No" [(ngModel)]="studentForm.regNo" />
+    <input type="number" placeholder="Roll No" [(ngModel)]="studentForm.rollNo" />
+    <input type="text" placeholder="Name" [(ngModel)]="studentForm.name" />
+    <input type="text" placeholder="School" [(ngModel)]="studentForm.school" />
+    <input type="number" placeholder="Standard(1-12)" [(ngModel)]="studentForm.standard" />
+    <input type="text" placeholder="Gender(MALE/FEMALE)" [(ngModel)]="studentForm.gender" />
+    <input type="number" placeholder="Percentage(0-100)" [(ngModel)]="studentForm.percentage" />
+
+    <button (click)="saveStudent()">
+      {{ editIndex !== null ? 'Update Student' : 'Add Student' }}
+    </button>
+
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+
+  <div class="students-grid">
+    <div class="student-card" *ngFor="let student of students; let i = index">
+      <h3>Student {{ i + 1 }}</h3>
+
+      <p><strong>Reg No:</strong> {{ student.regNo }}</p>
+      <p><strong>Roll No:</strong> {{ student.rollNo }}</p>
+      <p><strong>Name:</strong> {{ student.name }}</p>
+      <p><strong>School:</strong> {{ student.school }}</p>
+      <p><strong>Standard:</strong> {{ student.standard }}</p>
+      <p><strong>Gender:</strong> {{ student.gender }}</p>
+      <p><strong>Percentage:</strong> {{ student.percentage }}</p>
+
+      <div class="card-buttons">
+        <button class="edit-btn" (click)="editStudent(i)">Edit</button>
+        <button class="delete-btn" (click)="deleteStudent(i)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

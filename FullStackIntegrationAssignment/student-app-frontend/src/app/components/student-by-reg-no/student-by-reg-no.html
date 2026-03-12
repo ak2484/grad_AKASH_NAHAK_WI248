@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Find Student by Registration Number</h2>
+
+  <div class="form-group search-group">
+    <input
+      type="number"
+      placeholder="Enter Registration Number"
+      [(ngModel)]="regNo"
+      class="form-control input-style"
+    />
+    <button class="btn btn-primary mt-2" (click)="searchStudent()">Search</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{ errorMessage }}</div>
+
+  <div class="students-grid mt-3" *ngIf="students.length > 0">
+    <div class="student-card" *ngFor="let student of students; let i = index">
+      <h3>Student {{ i + 1 }}</h3>
+
+      <p><strong>Reg No:</strong> {{ student.regNo }}</p>
+      <p><strong>Roll No:</strong> {{ student.rollNo }}</p>
+      <p><strong>Name:</strong> {{ student.name }}</p>
+      <p><strong>School:</strong> {{ student.school || 'N/A' }}</p>
+      <p><strong>Standard:</strong> {{ student.standard || 'N/A' }}</p>
+      <p><strong>Gender:</strong> {{ student.gender || 'N/A' }}</p>
+      <p><strong>Percentage:</strong> {{ student.percentage || 'N/A' }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="students.length === 0 && !errorMessage" class="mt-2">No student found.</div>
+</div>

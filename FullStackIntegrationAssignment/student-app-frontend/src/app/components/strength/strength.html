@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Check Student Strength</h2>
+
+  <!-- Input Section -->
+
+  <div class="form-box">
+    <label>Gender</label>
+    <select [(ngModel)]="gender">
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+    </select>
+
+    <label>Standard</label>
+    <input type="number" [(ngModel)]="standard" placeholder="Enter Standard" />
+
+    <button (click)="getStrength()">Get Strength</button>
+  </div>
+
+  <!-- Result -->
+
+  <div class="result-box" *ngIf="count !== undefined">
+    <h3>Total Students</h3>
+
+    <p><strong>Gender:</strong> {{ gender }}</p>
+
+    <p><strong>Standard:</strong> {{ standard }}</p>
+
+    <h1>{{ count }}</h1>
+  </div>
+</div>

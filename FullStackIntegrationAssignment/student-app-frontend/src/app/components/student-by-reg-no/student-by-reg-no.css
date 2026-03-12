@@ -1,0 +1,15 @@
+.input-style {
+  width: 80%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #134074; /* your main color */
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-right: 5px;
+}
+
+.input-style:focus {
+  border-color: #1e90ff; /* highlight color on focus */
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+}

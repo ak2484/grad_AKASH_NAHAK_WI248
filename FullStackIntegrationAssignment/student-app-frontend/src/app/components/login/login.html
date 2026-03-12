@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h2>Login</h2>
+
+  <form (submit)="abc($event)">
+    <label>Username</label>
+    <input type="text" #mi1 />
+
+    <label>Password</label>
+    <input type="password" #mi2 />
+
+    <label>Role</label>
+    <select #mi3>
+      <option>Admin</option>
+      <option value="Staff">Staff</option>
+      <option value="Employee">Employee</option>
+    </select>
+
+    <div class="buttons">
+      <button type="submit">Login</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
+</div>

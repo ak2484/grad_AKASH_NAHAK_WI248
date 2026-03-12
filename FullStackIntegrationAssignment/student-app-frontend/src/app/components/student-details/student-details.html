@@ -1,0 +1,12 @@
+<h1>Student Details Page</h1>
+<div class="students-grid">
+  <div class="student-card" *ngFor="let student of students; let i = index">
+    <h4>Student No. {{ i + 1 }}</h4>
+
+    <p><strong>Reg No:</strong> {{ student.regNo }}</p>
+    <p><strong>Roll No:</strong> {{ student.rollNo }}</p>
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>School:</strong> {{ student.school }}</p>
+    <p><strong>Standard:</strong> {{ student.standard }}</p>
+  </div>
+</div>

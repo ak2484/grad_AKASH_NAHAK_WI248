@@ -1,0 +1,70 @@
+<div class="app-container">
+  <!-- Navbar -->
+
+  <header class="navbar">
+    <div class="logo">Student Management System</div>
+
+    <div class="hamburger" (click)="toggleSidebar()">☰</div>
+
+    <div class="nav-user">
+      <span *ngIf="us.getName() !== 'Guest'">🔵 {{ us.getName() }} | {{ rs.getRole() }}</span>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+
+  <div class="layout">
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+      <ng-container *ngIf="us.getName() === 'Guest'">
+        <a routerLink="/welcome">Welcome</a>
+        <a routerLink="/login">Login</a>
+      </ng-container>
+
+      <!-- Staff Menu -->
+
+      <ng-container *ngIf="rs.getRole() === 'Staff' && us.getName() !== 'Guest'">
+        <a routerLink="/welcome">Welcome</a>
+        <a routerLink="/student-details"> View Students</a>
+        <a routerLink="/student-by-regNo"> View Student By Reg No</a>
+
+        <a routerLink="/result-students">View Results (Pass/Fail)</a>
+        <a routerLink="/strength">Gender Strength</a>
+        <a routerLink="/school-students">Students By School</a>
+        <a routerLink="/login" (click)="us.setName('Guest')">Logout</a>
+      </ng-container>
+
+      <!-- Admin Menu -->
+
+      <ng-container *ngIf="rs.getRole() === 'Admin'">
+        <<a routerLink="/welcome">Welcome</a>
+
+        <a routerLink="/admin-page">Manage Students</a>
+
+        <a routerLink="/student-by-regNo"> View Student By Reg No</a>
+
+        <a routerLink="/school-students">Students By School</a>
+
+        <a routerLink="/result-students">View Results (Pass/Fail)</a>
+
+        <a routerLink="/strength">Gender Strength</a>
+
+        <a routerLink="/login" (click)="us.setName('Guest'); rs.setRole('Staff')"> Logout </a>
+      </ng-container>
+    </aside>
+
+    <!-- Content -->
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <p>Student Management System © 2026</p>
+    <p>Contact: support@studentapp.com</p>
+  </footer>
+</div>

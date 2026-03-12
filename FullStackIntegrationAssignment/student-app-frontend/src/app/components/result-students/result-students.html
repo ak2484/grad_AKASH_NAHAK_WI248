@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Student Results</h2>
+
+  <!-- Buttons to Load Results -->
+
+  <div class="result-buttons">
+    <button class="pass-btn" (click)="loadResults(true)">Show Pass Students</button>
+
+    <button class="fail-btn" (click)="loadResults(false)">Show Fail Students</button>
+  </div>
+
+  <!-- Students Grid -->
+
+  <div class="students-grid" *ngIf="students.length > 0">
+    <div class="student-card" *ngFor="let student of students; let i = index">
+      <h3>Student {{ i + 1 }}</h3>
+
+      <p><strong>Reg No:</strong> {{ student.regNo }}</p>
+      <p><strong>Roll No:</strong> {{ student.rollNo }}</p>
+      <p><strong>Name:</strong> {{ student.name }}</p>
+      <p><strong>School:</strong> {{ student.school }}</p>
+      <p><strong>Standard:</strong> {{ student.standard }}</p>
+      <p><strong>Gender:</strong> {{ student.gender }}</p>
+      <p><strong>Percentage:</strong> {{ student.percentage }}</p>
+    </div>
+  </div>
+
+  <!-- No Data Message -->
+
+  <div *ngIf="students.length === 0" class="no-data">Click a button to load results.</div>
+</div>
